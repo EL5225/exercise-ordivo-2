@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { TCard } from "@/utils";
 
-defineProps<TCard>();
+const props = defineProps<TCard>();
 </script>
 
 <template>
-  <router-link :to="link" class="card">
-    <h3>{{ title }}</h3>
+  <router-link :to="props.link" class="card">
+    <h3>{{ props.title }}</h3>
     <img src="/images/pokeball.webp" alt="pokeball" width="30" />
   </router-link>
 </template>

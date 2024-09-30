@@ -1,8 +1,8 @@
 <script setup lang="ts">
-defineProps<{ ability: string }>();
+const props = defineProps<{ ability: string }>();
 </script>
 <template>
-  <div class="ability">{{ ability }}</div>
+  <div class="ability">{{ props.ability }}</div>
 </template>
 <style scoped lang="css">
 .ability {

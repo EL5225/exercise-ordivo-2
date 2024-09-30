@@ -1,8 +1,8 @@
 <script setup lang="ts">
-defineProps<{ type: string }>();
+const props = defineProps<{ type: string }>();
 </script>
 <template>
-  <div :class="`type type-${type}`">{{ type }}</div>
+  <div :class="`type type-${props.type}`">{{ props.type }}</div>
 </template>
 <style scoped lang="css">
 .type {

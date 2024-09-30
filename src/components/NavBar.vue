@@ -1,10 +1,10 @@
 <script setup lang="ts">
-defineProps<{ title: string }>();
+const props = defineProps<{ title: string }>();
 </script>
 
 <template>
   <header>
-    <router-link to="/" class="home-nav">{{ title }}</router-link>
+    <router-link to="/" class="home-nav">{{ props.title }}</router-link>
   </header>
 </template>
 
