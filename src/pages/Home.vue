@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Card from "@/components/Card.vue";
 import { getListPokemons, Result } from "@/utils";
-import { onMounted, ref, watch, watchEffect } from "vue";
+import { onMounted, ref, watch } from "vue";
 
 const pokemonList = ref<Result[]>();
 const searchPokemon = ref("");
