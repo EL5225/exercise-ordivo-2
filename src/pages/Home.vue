@@ -1,21 +1,19 @@
 <script setup lang="ts">
 import Card from "@/components/Card.vue";
 import { getListPokemons, Result } from "@/utils";
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch, watchEffect } from "vue";
 
 const pokemonList = ref<Result[]>();
 const searchPokemon = ref("");
 const searchValues = ref<Result[]>();
-const scroller = ref();
-const endOfScroller = ref();
+const scroller = ref<Element | null>(null);
+const endOfScroller = ref<Element | null>(null);
 const limit = ref(50);
 
 const fetchPokemon = async () => {
   try {
     const data = await getListPokemons(limit.value);
     pokemonList.value = data?.results;
-
-    console.log("fet");
   } catch (error) {
     console.error(error);
   }
@@ -48,7 +46,7 @@ onMounted(() => {
     },
     { root: scroller.value, rootMargin: "100px" }
   );
-  observer.observe(endOfScroller.value);
+  observer.observe(endOfScroller.value as Element);
 });
 </script>
 
@@ -62,7 +60,7 @@ onMounted(() => {
     </div>
     <div ref="scroller" class="card-list">
       <Card
-        v-for="pokemon in searchValues || pokemonList"
+        v-for="pokemon in searchPokemon ? searchValues : pokemonList"
         :key="pokemon.name"
         :title="pokemon.name"
         :link="`/pokemon/${pokemon.name}`" />
