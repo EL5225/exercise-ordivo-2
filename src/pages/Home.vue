@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Card from "@/components/Card.vue";
+import SearchField from "@/components/SearchField.vue";
 import { getListPokemons, Result } from "@/utils";
 import { onMounted, ref, watch } from "vue";
 
@@ -44,7 +45,7 @@ onMounted(() => {
         fetchPokemon();
       }
     },
-    { root: scroller.value, rootMargin: "100px" }
+    { root: scroller.value, rootMargin: "200px" }
   );
   observer.observe(endOfScroller.value as Element);
 });
@@ -52,12 +53,10 @@ onMounted(() => {
 
 <template>
   <section>
-    <div class="search-field">
-      <input
-        v-model="searchPokemon"
-        type="search"
-        placeholder="Search Pokemon" />
-    </div>
+    <SearchField
+      name="search-pokemon"
+      placeholder="Search Pokemon"
+      @search="(value) => (searchPokemon = value)" />
     <div ref="scroller" class="card-list">
       <Card
         v-for="pokemon in searchPokemon ? searchValues : pokemonList"
@@ -87,21 +86,5 @@ section {
   grid-template-columns: repeat(5, 1fr);
   row-gap: 2rem;
   overflow-y: auto;
-}
-
-.search-field {
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-input[type="search"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
 }
 </style>

@@ -63,7 +63,7 @@ section {
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 2rem 8rem;
+  padding: 2rem 10rem;
   gap: 8rem;
 }
 
