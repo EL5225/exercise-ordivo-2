@@ -9,3 +9,24 @@
   font-style: normal;
   font-weight: 400;
 }
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Montserrat", system-ui;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px 10px;
+  border: 2px solid black;
+  border-radius: 15px;
+  color: black;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}

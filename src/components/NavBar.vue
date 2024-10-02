@@ -5,6 +5,7 @@ const props = defineProps<{ title: string }>();
 <template>
   <header>
     <router-link to="/" class="home-nav">{{ props.title }}</router-link>
+    <router-link to="/favorite" class="fav">Favorite</router-link>
   </header>
 </template>
 
@@ -23,5 +24,21 @@ header {
   color: white;
   font-weight: bold;
   font-size: 2rem;
+}
+
+.fav {
+  margin-left: auto;
+  text-decoration: none;
+  padding: 8px 15px;
+  background-color: rgb(74, 136, 136);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.fav:hover {
+  background-color: rgb(121, 160, 187);
 }
 </style>

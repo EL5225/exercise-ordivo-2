@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import PokemonAbility from "@/components/PokemonAbility.vue";
 import PokemonType from "@/components/PokemonType.vue";
-import { getPokemonByName, TPokemonDetail } from "@/utils";
+import { getPokemonByName, TPokemonDetail, usePokemonStore } from "@/utils";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
 const pokemon = ref<TPokemonDetail | undefined>({});
 const loading = ref(true);
+
+const pokemonStore = usePokemonStore();
 
 onMounted(async () => {
   const data = await getPokemonByName(route.params.name as string);
@@ -50,6 +52,20 @@ onMounted(async () => {
           :ability="abilities?.ability?.name || ''"
           :key="abilities?.ability?.name" />
       </div>
+
+      <button
+        @click="
+          pokemonStore.setPokemonList({
+            name: pokemon?.name as string,
+            url: `https://pokeapi.co/api/v2/${pokemon?.name}`,
+          })
+        ">
+        {{
+          pokemonStore.pokemonList?.find((poke) => poke.name === pokemon?.name)
+            ? "Remove from favorite"
+            : "Add to favorite"
+        }}
+      </button>
     </div>
   </section>
 
@@ -64,7 +80,12 @@ section {
   height: 100%;
   display: flex;
   padding: 2rem 10rem;
-  gap: 8rem;
+  gap: 10rem;
+}
+
+img {
+  width: 30vw;
+  object-fit: contain;
 }
 
 .loading {
