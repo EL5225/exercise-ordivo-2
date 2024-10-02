@@ -1,17 +1,10 @@
 <script setup lang="ts">
-const emit = defineEmits<{
-  search: [value: string];
-}>();
-
-const handleChange = (e: Event) => {
-  const event = e.target as HTMLInputElement;
-  const value = event?.value;
-
-  emit("search", value);
-};
+const search = defineModel("search", {
+  required: true,
+});
 </script>
 <template>
-  <input @input="handleChange" type="search" />
+  <input v-model="search" type="search" />
 </template>
 <style lang="css" scoped>
 input[type="search"] {

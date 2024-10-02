@@ -1,1 +1,26 @@
-{"root":["./src/main.ts","./src/vite-env.d.ts","./src/config/index.ts","./src/config/axios/index.ts","./src/router/index.ts","./src/utils/index.ts","./src/utils/helpers/index.ts","./src/utils/helpers/api/index.ts","./src/utils/stores/index.ts","./src/utils/types/index.ts","./src/app.vue","./src/components/card.vue","./src/components/navbar.vue","./src/components/pokemonability.vue","./src/components/pokemontype.vue","./src/layouts/mainlayout.vue","./src/pages/home.vue","./src/pages/pokemondetail.vue"],"version":"5.6.2"}
+{
+  "root": [
+    "./src/main.ts",
+    "./src/vite-env.d.ts",
+    "./src/config/index.ts",
+    "./src/config/axios/index.ts",
+    "./src/router/index.ts",
+    "./src/utils/index.ts",
+    "./src/utils/helpers/index.ts",
+    "./src/utils/helpers/api/index.ts",
+    "./src/utils/stores/index.ts",
+    "./src/utils/stores/pokemon/index.ts",
+    "./src/utils/types/index.ts",
+    "./src/app.vue",
+    "./src/components/card.vue",
+    "./src/components/navbar.vue",
+    "./src/components/pokemonability.vue",
+    "./src/components/pokemontype.vue",
+    "./src/components/searchfield.vue",
+    "./src/layouts/mainlayout.vue",
+    "./src/views/favorite.vue",
+    "./src/views/home.vue",
+    "./src/views/pokemondetail.vue"
+  ],
+  "version": "5.6.2"
+}

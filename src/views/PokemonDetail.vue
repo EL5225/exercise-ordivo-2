@@ -2,7 +2,7 @@
 import PokemonAbility from "@/components/PokemonAbility.vue";
 import PokemonType from "@/components/PokemonType.vue";
 import { getPokemonByName, TPokemonDetail, usePokemonStore } from "@/utils";
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
@@ -10,6 +10,14 @@ const pokemon = ref<TPokemonDetail | undefined>({});
 const loading = ref(true);
 
 const pokemonStore = usePokemonStore();
+
+const favoriteState = computed(() => {
+  return pokemonStore.pokemonList?.find(
+    (poke) => poke.name === pokemon.value?.name
+  )
+    ? "Remove from favorite"
+    : "Add to favorite";
+});
 
 onMounted(async () => {
   const data = await getPokemonByName(route.params.name as string);
@@ -57,14 +65,10 @@ onMounted(async () => {
         @click="
           pokemonStore.setPokemonList({
             name: pokemon?.name as string,
-            url: `https://pokeapi.co/api/v2/${pokemon?.name}`,
+            url: `https://pokeapi.co/api/v2/pokemon/${pokemon?.name}`,
           })
         ">
-        {{
-          pokemonStore.pokemonList?.find((poke) => poke.name === pokemon?.name)
-            ? "Remove from favorite"
-            : "Add to favorite"
-        }}
+        {{ favoriteState }}
       </button>
     </div>
   </section>

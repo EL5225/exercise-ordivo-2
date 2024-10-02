@@ -56,7 +56,7 @@ onMounted(() => {
     <SearchField
       name="search-pokemon"
       placeholder="Search Pokemon"
-      @search="(value) => (searchPokemon = value)" />
+      v-model:search="searchPokemon" />
     <div ref="scroller" class="card-list">
       <Card
         v-for="pokemon in searchPokemon ? searchValues : pokemonList"

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "@/pages/Home.vue";
-import PokemonDetail from "@/pages/PokemonDetail.vue";
-import Favorite from "@/pages/Favorite.vue";
+import Home from "@/views/Home.vue";
+import PokemonDetail from "@/views/PokemonDetail.vue";
+import Favorite from "@/views/Favorite.vue";
 
 const routes: Readonly<RouteRecordRaw[]> = [
   {
