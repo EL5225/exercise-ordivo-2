@@ -3,9 +3,11 @@ const search = defineModel("search", {
   required: true,
 });
 </script>
+
 <template>
   <input v-model="search" type="search" />
 </template>
+
 <style lang="css" scoped>
 input[type="search"] {
   width: 100%;

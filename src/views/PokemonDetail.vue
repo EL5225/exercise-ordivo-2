@@ -50,15 +50,15 @@ onMounted(async () => {
       <div class="types">
         <PokemonType
           v-for="types in pokemon?.types"
-          :type="types?.type?.name || ''"
-          :key="types?.type?.name" />
+          :key="types?.type?.name"
+          :type="types?.type?.name || ''" />
       </div>
 
       <div class="abilities">
         <PokemonAbility
           v-for="abilities in pokemon?.abilities"
-          :ability="abilities?.ability?.name || ''"
-          :key="abilities?.ability?.name" />
+          :key="abilities?.ability?.name"
+          :ability="abilities?.ability?.name || ''" />
       </div>
 
       <button
